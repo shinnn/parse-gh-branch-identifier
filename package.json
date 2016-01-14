@@ -1,0 +1,45 @@
+{
+  "name": "parse-gh-branch-identifier",
+  "version": "1.0.0",
+  "description": "Parse a branch identifier string that is available for Github commit comparison API",
+  "repository": "shinnn/parse-gh-branch-identifier",
+  "author": "Shinnosuke Watanabe (https://github.com/shinnn)",
+  "scripts": {
+    "pretest": "eslint --config @shinnn browser.js index.js index.jsnext.js test.js && bower install",
+    "test": "node --strong_mode --throw-deprecation --track-heap-objects test.js | tap-spec",
+    "coverage": "node --strong_mode node_modules/.bin/istanbul -x=bower_components/** cover test.js"
+  },
+  "license": "MIT",
+  "jsnext:main": "index.jsnext.js",
+  "files": [
+    "index.js",
+    "index.jsnext.js"
+  ],
+  "keywords": [
+    "string",
+    "user",
+    "username",
+    "branch",
+    "git",
+    "parse",
+    "object",
+    "github",
+    "browser",
+    "client-side"
+  ],
+  "dependencies": {
+    "parse-user-branch": "^1.0.0"
+  },
+  "devDependencies": {
+    "@shinnn/eslint-config": "^1.4.0",
+    "bower": "^1.7.2",
+    "eslint": "^1.10.3",
+    "istanbul": "^0.4.2",
+    "require-bower-files": "^3.0.0",
+    "require-from-string": "^1.1.0",
+    "rollup": "^0.25.0",
+    "rollup-plugin-npm": "^1.3.0",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.4.0"
+  }
+}
