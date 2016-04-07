@@ -5,7 +5,7 @@
   "repository": "shinnn/parse-gh-branch-identifier",
   "author": "Shinnosuke Watanabe (https://github.com/shinnn)",
   "scripts": {
-    "pretest": "eslint --config @shinnn browser.js index.js index.jsnext.js test.js && bower install",
+    "pretest": "eslint --fix --config @shinnn browser.js index.js index.jsnext.js test.js && bower install",
     "test": "node --strong_mode --throw-deprecation --track-heap-objects test.js | tap-spec",
     "coverage": "node --strong_mode node_modules/.bin/istanbul -x=bower_components/** cover test.js"
   },
@@ -31,9 +31,9 @@
     "parse-user-branch": "^1.0.0"
   },
   "devDependencies": {
-    "@shinnn/eslint-config": "^1.4.0",
+    "@shinnn/eslint-config": "^2.1.0",
     "bower": "^1.7.2",
-    "eslint": "^1.10.3",
+    "eslint": "^2.7.0",
     "istanbul": "^0.4.2",
     "require-bower-files": "^3.0.0",
     "require-from-string": "^1.1.0",
