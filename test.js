@@ -3,7 +3,7 @@
 const requireBowerFiles = require('require-bower-files');
 const requireFromString = require('require-from-string');
 const rollup = require('rollup');
-const rollupPluginNpm = require('rollup-plugin-npm');
+const rollupPluginNodeResolve = require('rollup-plugin-node-resolve');
 const test = require('tape');
 
 function runTest(description, main) {
@@ -71,9 +71,9 @@ requireBowerFiles({self: true});
 
 rollup.rollup({
   entry: require('./package.json')['jsnext:main'],
-  plugins: rollupPluginNpm({jsnext: true})
+  plugins: [rollupPluginNodeResolve({jsnext: true})]
 }).then(bundle => {
   runTest('require(\'parse-gh-branch-identifier\')', require('.'));
   runTest('window.parseGhBranchIdentifier', global.window.parseGhBranchIdentifier);
-  runTest('Module exports', requireFromString(bundle.generate({format: 'cjs'}).code));
+  runTest('Module exports', requireFromString(bundle.generate({format: 'cjs'}).code, 'index.jsnext.js'));
 });
